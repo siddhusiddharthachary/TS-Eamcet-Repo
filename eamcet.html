@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="eamcetstyles.css">
+    <script src="script.js"></script>
+    <title>TSEAMCET</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <style>
+        .papers-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .paper-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .paper-card a{
+            display: flex;
+            width: 150px;
+            height: 30px;
+            background-color: red;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .paper-card a:hover{
+            background-color: darkred;
+        }
+
+        .paper-card:hover {
+            transform: scale(0.95);
+        }
+
+        .cut-off-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .cut-off-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cut-off-card:hover {
+            transform: scale(0.95);
+        }
+
+        .cut-off-card a{
+            display: flex;
+            width: 150px;
+            height: 30px;
+            background-color: red;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin-left: 550px;
+        }
+
+        .cut-off-card a:hover{
+            background-color: darkred;
+        }
+    </style>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+
+    
+
+<script>
+    function predictCollege(rank, category) {
+        var college = "";
+
+        if (rank >= 0 && rank <= 5000) {
+            if (category === "OC") {
+                college = "Vasavi and VNR";
+            } else if (category === "BC") {
+                college = "MGIT and CBIT";
+            } else if (category === "SC" || category === "ST") {
+                college = "OU and JNTU";
+            }
+        } else if (rank > 5000 && rank <= 10000) {
+            if (category === "OC") {
+                college = "Mallareddy University";
+            } else if (category === "BC") {
+                college = "Gokaraju Rangaraju College";
+            } else if (category === "SC" || category === "ST") {
+                college = "CBIT and MGIT";
+            }
+        } else {
+            college = "No prediction available for the given rank range.";
+        }
+
+        alert("Based on your rank and category, you can consider the following colleges: " + college);
+    }
+</script>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="logo.webp" alt="">
+        <h1>TSEAMCET</h1>
+        <ul>
+            <li><a href="http://" target="_blank" rel="noopener noreferrer">Home</a></li>
+            <li><a href="http://" target="_blank" rel="noopener noreferrer">Contact us</a></li>
+            <li><a href="http://" id="logoutBtn" target="_blank" rel="noopener noreferrer">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="apply-section">
+        <h2>Apply for EAMCET Exam</h2>
+        <form class="apply-form">
+            <input type="text" class="apply-input" placeholder="Name" id="name" required>
+            <input type="email" class="apply-input" placeholder="Email" id="email" required>
+            <input type="tel" class="apply-input" placeholder="Phone Number" id="phone" required>
+            <button type="button" class="apply-button" onclick="generateOTP()">Enter</button>
+        </form>
+        <button class="apply-button">Application Guidelines</button>
+    </div>
+    
+    <div class="adm">ADMISSIONS INTO ENGINEERING AND PHARMACY :: 2023 (FOR M.P.C STREAM ONLY)</div>
+    <div class="questions">
+        <div class="faq">Frequently Asked questions</div>
+        <div class="questions2">
+            <div class="q0">
+                <button id="qbox" onclick="firstPDF()" target="_blank">Left Over Seats after special phase</button>
+                <button id="qbox" onclick="secondPDF()">2023 TSEAMCET REVISED SCHEDULE SPECIAL PHASE</button>
+                <button id="qbox" onclick="thirdPDF()">PRESS NOTE ON REVISED SCHEDULE OF TSEAMCET 2023 SPECIAL PHASE COUNSELLING</button>
+                <button id="qbox" onclick="fourthPDF()">TSEAMCET -2023 DETAILED NOTIFICATION</button>
+                <button id="qbox" onclick="fifthPDF()">TSEAMCET 2023 REVISED SCHEDULE FINAL PHASE AND SPECIAL PHASE</button>
+                <button id="qbox" href="https://tseamcet.nic.in/institute_profile.aspx">TSEAMCET 2023 REVISED FORFEITURE GUIDELINES</button>
+                <button id="qbox" onclick="seventhPDF()">Institute Profile</button>
+                <button id="qbox" onclick="eighthPDF()">List of Districts & Other Codes</button>
+                <button id="qbox" onclick="ninthPDF()">Priorities of Special Categories (PH/NCC/CAP/Sports)</button>
+                <button id="qbox" onclick="tenthPDF()">PROVISIONAL PRIORITY LIST OF SPORTS CANDIDATES</button>
+                
+            </div>
+            <div class="q1">
+                <button id="qbox" onclick="eleventhPDF()">PROVISIONAL PRIORITY LIST OF NCC CANDIDATES</button>
+                <button id="qbox" onclick="twelvethPDF()">TSEAMCET 2023 SPOT ADMISSONS GUIDELINES TO CANDIDATES </button>
+                <button id="qbox" onclick="thirteenthPDF()">Notification for leftover vacancies in JNTUH Mahabubabad and Palair</button>
+                <button id="qbox" onclick="fourteenthPDF()">lIST OF HELPLINE CENTERS FOR SPECIAL PHASE CERTIFICATES VERIFICATION ANNEXURE I</button>
+                <button id="qbox" onclick="fifteenthPDF()">College-wise Allotment Details</button>
+                <button id="qbox" onclick="sixteenthPDF()">TSEAMCET 2022 Last Rank Statement First Phase</button>
+                <button id="qbox" onclick="seventeenthPDF()">TSEAMCET 2022 Last Rank Statement Final Phase</button>
+                <button id="qbox" onclick="eighteenthPDF()">List of Courses</button>
+                <button id="qbox" onclick="ninteenthPDF()">MANUAL OPTION ENTRY FORM</button>
+                <button id="qbox" onclick="twentythPDF()">TSEAMCET 2023 USER GUIDE</button>
+                <button id="qbox" onclick="twentyfirstPDF()">List of New Branches introduced in 2023</button>
+            </div>
+        </div>
+    </div>
+    <div class="maincard">
+        <div class="card-container">
+            <div class="card1">
+                <h2>Options</h2>
+                <p>Colleges displayed for option entry are subject to approval of AICTE, Govt. & Affiliating body.
+                    All candidates can exercise options for minority institutions. However allotment to them will be made subject to availability of seats after exhausting concerned minority students.</p>
+            </div>
+            <div class="card2">
+                <h2>For security reasons it is advisable that
+                </h2>
+                <p>More than one candidate should not login from the same Computer/ Browser at the same time.
+                    After completing options entry, Always LOGOUT properly and close the Browser.</p>
+            </div>
+            <div class="card3">
+                <h2>Payment</h2>
+                <p>అన్ని క్రెడిట్ / డెబిట్ కార్డులకు నగదు ఉపసంహరణ మరియు ఆన్‌లైన్ లావాదేవీలపై పరిమితులు ఉన్నందున అభ్యర్థులు రోజుకు అనుమతించదగిన గరిష్ట లావాదేవీ మొత్తాన్ని మరియు తగినంత ఫండ్ లభ్యతను ట్యూషన్ ఫీజు చెల్లించే ముందు ధృవీకరించు కొనగలరు. లావాదేవీలు కస్టమర్ కార్డ్ పరిమితిని మించి ఉంటే లేదా తగినంత నిధుల కొరత కారణంగా తిరస్కరించబడతాయి.</p>
+            </div>
+            <div class="card4">
+                <h2>Login ID</h2>
+                <p>To get Login ID candidates shall generate Password through Candidate Registration and send SMS to 9731979899 as ' TSEAMCET(space)01(space)Your HTNo'</p>
+            </div>
+            <div class="card5">
+                <h2>NQNA (Not-Qualified Non-Appeared) Minority Candidates</h2>
+                <p>Minority candidates (Muslim/Christian) who have not qualified or not appeared in TSEAMCET - 2023, are informed to apply between 26-06-2023 to 28-06-2023 to consider them for the leftover seats if any, after exhausting all the qualified Minority candidates in Minority Engineering / Pharmacy colleges opting for admission through Convenor (S.W-I). The candidates are not eligible for fee reimbursement scheme.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="college-predictor">
+        <h2>College Predictor</h2>
+        <form onsubmit="event.preventDefault(); predictCollege(document.getElementById('rank').value, document.getElementById('category').value);">
+            <label for="rank">Enter your rank:</label>
+            <input type="number" id="rank" required>
+            <label for="category">Select your category:</label>
+            <select id="category" required>
+                <option value="OC">OC</option>
+                <option value="BC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="Minority">Minority</option>
+            </select>
+            <button type="submit">Predict College</button>
+        </form>
+    </div>
+    
+    <div class="papers-section">
+        <div class="pyqp-head">
+            <h2>Previous Year Question Papers</h2>
+        </div>
+        <div class="papers-cards">
+            <div class="paper-card">
+                <h2>2019 Question Paper</h2>
+                <a href="https://images.collegedunia.com/public/image/a6d10ca006cc5194ee042f610177d965.pdf" target="_blank">Download PDF</a>
+            </div>
+            <div class="paper-card">
+                <h2>2020 Question Paper</h2>
+                <a href="https://images.collegedunia.com/public/image/3e6686a19852abbeb992613bebc07e59.pdf" target="_blank">Download PDF</a>
+            </div>
+            <div class="paper-card">
+                <h2>2021 Question Paper</h2>
+                <a href="https://images.collegedunia.com/public/college_data/images/entrance/sample_paper/1639381522TS%20EAMCET%202021%20(E)%20(Aug%2006-FN).pdf" target="_blank">Download PDF</a>
+            </div>
+            <div class="paper-card">
+                <h2>2022 Question Paper</h2>
+                <a href="https://images.collegedunia.com/public/image/8e06c7d4ab8d0ab1cf042dd0caa0d004.pdf" target="_blank">Download PDF</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cut-off-section">
+        <h2>Cut-off Marks</h2>
+        <div class="cut-off-card">
+            <h3>Year and College wise Cut-off Marks</h3>
+            <p>Check the cut-off marks for various categories.</p>
+            <a href="https://s4.collegedunia.com/exams/ts-eamcet/cutoff" target="_blank">View Cut-off</a>
+        </div>
+    </div>
+</body>
+
+</html>
